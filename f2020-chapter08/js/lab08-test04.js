@@ -56,30 +56,31 @@ for (let g of galleries) {
 const colors = JSON.parse(colorsAsString);
 
 // use a loop to output color name if luminance < 75
-for (let c of colors){
-   if (c.luminance < 75){
+for (let c of colors) {
+   if (c.luminance < 75) {
       console.log(c.name);
    }
 }
 
 // use two nested loops - outer: loop thru colors
-for (let c of colors){
-   console.log((c.name));
-   let x;
-   for(i=0; i<c.rgb.length; i++){
-      x += (c.rgb[i]);
-      console.log(x);
+for (let c of colors) {
+   console.log(c.name);
+   let total = 0;
+   for (i = 0; i < c.rgb.length; i++) {
+      total = total + c.rgb[i];
    }
-  
-      
-   }
+   console.log(total);
+}
 
 /* use a loop output using document.write a unordered
    list of links to the galleries in the galleries array.
    Make the label of the link the name property, and the href
    the url property */
-
-
+document.write("<ul>");
+for (let g of galleries) {
+   document.write(`<li><a href=${g.url}>${g.name}</a></li>`);
+}
+document.write("</ul>");
 
 
 /* use a loop output using document.write an unordered
@@ -90,3 +91,13 @@ for (let c of colors){
       as the color name.
    2. Set the text color to white if the luminosity is less than 75. This will 
     make the text color white for the darker colors.  */
+
+document.write("<ul>");
+for (let c of colors) {
+   let txt;
+   if(c.luminance<75){
+      txt ="white";
+   }
+   document.write(`<li style="background-color:rgb(${c.rgb[0]},${c.rgb[1]},${c.rgb[2]}); color:${txt};">${c.name}</li>`);
+}
+document.write("</ul>");
