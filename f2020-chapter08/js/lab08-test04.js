@@ -95,8 +95,8 @@ document.write("</ul>");
 document.write("<ul>");
 for (let c of colors) {
    let txt;
-   if(c.luminance<75){
-      txt ="white";
+   if (c.luminance < 75) {
+      txt = "white";
    }
    document.write(`<li style="background-color:rgb(${c.rgb[0]},${c.rgb[1]},${c.rgb[2]}); color:${txt};">${c.name}</li>`);
 }
