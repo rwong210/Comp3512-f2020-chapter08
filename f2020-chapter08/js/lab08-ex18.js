@@ -1,4 +1,3 @@
-
 /* To refresh your memory, here is a complex object created using
    object literal syntax.
    */
@@ -8,8 +7,11 @@ const stock = {
    name: "Apple Inc.",
    location: {
       address: "One Apple Park Way",
-      city: "Cupertino"
-   }
-}
+      city: "Cupertino",
+      output() {
+         console.log(`${this.address} -  ${this.city}`);
+      }
+   },
+};
 
-
+stock.location.output();
