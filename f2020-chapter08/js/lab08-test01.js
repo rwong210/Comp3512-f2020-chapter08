@@ -25,24 +25,20 @@ let tip;
 
     tips.push(tip);
 }
-for (let i = 0; i < billTotals.length; i++){
-    console.log(`For bill of \$${billTotals[i]} the tip should be \$${tips[i]}`);
-};
 */
-
-function calculateTip(total){
+function calculateTip(total) {
     if (total > 75)
-    tip = total * 0.1;
+        tip = total * 0.1;
 
-else if (total <= 75 && total >= 30)
-    tip = total * 0.2;
+    else if (total <= 75 && total >= 30)
+        tip = total * 0.2;
 
-else if (total < 30)
-    tip = total * 0.3;
+    else if (total < 30)
+        tip = total * 0.3;
 
     return tip;
 }
 
-for (let b of billTotals){
-    console.log(calculateTip(b));
-}
+for (let i = 0; i < billTotals.length; i++) {
+    console.log(`For bill of \$${billTotals[i]} the tip should be \$${calculateTip(billTotals[i])}`);
+};
