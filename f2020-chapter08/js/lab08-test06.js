@@ -38,7 +38,13 @@ function AcctCalculations(Company) {
 }
 
 
+
 function outputCard(Company) {
+
+    let outputTag = function outputTag(Company, index) {
+        return `<small>${Company.tags[index]}</small>`;
+    }
+
     document.write(`<article class="card"><h2>${Company.symbol}-${Company.companyName}</h2><div>       
     <p>Share Price (50day avg): <span>$${Company.stats.day50MovingAvg}</span></p>
     <p>Share Price (200day avg): <span>$${Company.stats.day200MovingAvg}</span></p>
@@ -46,15 +52,14 @@ function outputCard(Company) {
     <p>Market Cap (200day avg): <span>${new AcctCalculations().marketCap200(Company)}</span></p>
     <p>Net Revenue: <span>${new AcctCalculations().revenue(Company)}</span></p>
     <p>Shareholder Equity: <span>${new AcctCalculations().shareHolderEquity(Company)}</span></p>
-  </div>
-  <footer>
-      <small>Technology</small> 
-      <small>Consumer Electronics</small>
-      <small>Computer Hardware</small>
-  </footer>
-</article>`);
+    </div>
+    <footer>`);
 
-};
+    for (i = 0; i < Company.tags.length; i++) {
+        document.write(`${outputTag(Company, i)}`)
+    }
+    document.write("</footer> </article>");
+}
 
 for (let c of companies) {
     outputCard(c);
