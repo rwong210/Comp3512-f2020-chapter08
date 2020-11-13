@@ -58,6 +58,7 @@ function outputCard(Company) {
     for (i = 0; i < Company.tags.length; i++) {
         document.write(`${outputTag(Company, i)}`)
     }
+    
     document.write("</footer> </article>");
 }
 
